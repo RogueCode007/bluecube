@@ -1,32 +1,33 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="flex ">
+    <div class="nav border hidden lg:block py-8 px-3">
+      <Nav></Nav>
     </div>
-    <router-view/>
+    <div class="container py-6 px-4 bg-gray-100 w-full">
+      <Header class=""></Header>
+      <router-view/>
+    </div>
   </div>
 </template>
-
+<script>
+import Nav from '@/components/Nav'
+import Header from '@/components/Header'
+export default {
+  components:{
+    Nav, Header
+    
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+   min-height: 100vh 
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.nav{
+  min-width: 250px;
+  padding: 0 20px
 }
 </style>

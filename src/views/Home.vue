@@ -1,18 +1,73 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="mt-6">
+      <div v-for="data in dataArr" :key="data.id" class="image cursor-pointer mt-8">
+        <SingleImage :data="data" />
+      </div>
+      <Loading v-show="this.$store.state.loading"/>
+      <Error v-show="this.$store.state.error"></Error>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import SingleImage from '@/components/SingleImage'
+import Loading from '@/components/Loading'
+import Error from '@/components/Error'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    SingleImage, Loading, Error
+  },
+  data(){
+    return {
+      
+    }
+  },
+  computed: mapState({
+    dataArr : state => state.dataArr
+  }),
+  created(){
+    this.$store.dispatch('getImages')
+    .finally(()=>{
+      this.$store.state.loading = false
+    })
   }
+
 }
 </script>
+<style scoped>
+.modal{
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0, 0.1);
+}
+.loading-modal{
+  min-height: 350px;
+  
+}
+
+@media only screen and (min-width:768px){
+  .image{
+  width: 40%;
+  margin: 5%;
+  display: inline-block;
+  
+  }
+
+}
+
+@media only screen and (min-width:1024px){
+  .image{
+    width: 23%;
+    margin: 1%;
+  }
+}
+
+</style>
