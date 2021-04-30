@@ -50,7 +50,7 @@ div.whitebox{
   height: 0;
   opacity: 0;
   border-radius: 0 0 20px 20px;
-  
+  background-color: white
 }
 div.image-box:hover div.whitebox{
   height: 150px;

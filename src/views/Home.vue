@@ -1,5 +1,13 @@
 <template>
   <div class="mt-6">
+      <div class="mt-6 mb-6 hidden  lg:flex bg-white justify-between items-center rounded shadow">
+        <p class="py-2 text-sm text-center border-r-2 w-full cursor-pointer">World <span class="iconify inline" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span></p>
+        <p class="py-2 text-sm text-center border-r-2 w-full cursor-pointer">Following <span class="iconify inline" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span></p>
+        <p class="py-2 text-sm text-center border-r-2 w-full cursor-pointer">Gender <span class="iconify inline" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span></p>
+        <p class="py-2 text-sm text-center border-r-2 w-full cursor-pointer">Post <span class="iconify inline" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span></p>
+        <p class="py-2 text-sm text-center border-r-2 w-full cursor-pointer">Location <span class="iconify inline" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span></p>
+        <p class="py-2 text-sm text-center w-full cursor-pointer">Profession <span class="iconify inline" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span></p>
+      </div>
       <div v-for="data in dataArr" :key="data.id" class="image cursor-pointer mt-8">
         <SingleImage :data="data" />
       </div>

@@ -57,6 +57,9 @@ export default {
 .mobile-nav{
   width: 250px;
 }
+.search-box{
+  background-color: white
+}
 ul.list{
   list-style-type: none;
   margin: 0
